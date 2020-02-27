@@ -16,7 +16,7 @@ namespace ThirdDrawer.Extensions.TypeExtensionMethods
 
         public static bool IsAssignableTo<TTarget>(this Type type)
         {
-            return typeof (TTarget).IsAssignableFrom(type);
+            return typeof(TTarget).IsAssignableFrom(type);
         }
 
         /// <summary>
@@ -35,8 +35,8 @@ namespace ThirdDrawer.Extensions.TypeExtensionMethods
             if (!openGenericType.IsGenericType) throw new ArgumentException("It's a bit difficult to have a closed type of a non-open-generic type", "openGenericType");
 
             var interfaces = type.GetInterfaces();
-            var baseTypes = new[] {type}.DepthFirst(t => t.BaseType == null ? new Type[0] : new[] {t.BaseType});
-            var typeAndAllThatThatEntails = new[] {type}.Union(interfaces).Union(baseTypes).ToArray();
+            var baseTypes = new[] { type }.DepthFirst(t => t.BaseType == null ? new Type[0] : new[] { t.BaseType });
+            var typeAndAllThatThatEntails = new[] { type }.Union(interfaces).Union(baseTypes).ToArray();
             var genericTypes = typeAndAllThatThatEntails.Where(i => i.IsGenericType);
             var closedGenericTypes = genericTypes.Where(i => !i.IsGenericTypeDefinition);
             var assignableGenericTypes = closedGenericTypes.Where(i => openGenericType.IsAssignableFrom(i.GetGenericTypeDefinition()));

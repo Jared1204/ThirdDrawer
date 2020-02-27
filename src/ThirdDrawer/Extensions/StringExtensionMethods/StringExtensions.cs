@@ -52,13 +52,13 @@ namespace ThirdDrawer.Extensions.StringExtensionMethods
 
         public static string CoalesceIfWhiteSpace(this string s, string other)
         {
-            return String.IsNullOrWhiteSpace(s) ? other : s;
+            return string.IsNullOrWhiteSpace(s) ? other : s;
         }
 
         public static IEnumerable<string> NotNullOrWhitespace(this IEnumerable<string> source)
         {
             return source
-                .Where(s => !String.IsNullOrWhiteSpace(s));
+                .Where(s => !string.IsNullOrWhiteSpace(s));
         }
 
         public static string Join(this IEnumerable<string> source, string separator)
