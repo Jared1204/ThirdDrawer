@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace ThirdDrawer.Extensions.CollectionExtensionMethods
+﻿namespace ThirdDrawer.Extensions.CollectionExtensionMethods
 {
+    using System.Collections.Generic;
+
     public sealed class Partition<T>
     {
         public Partition(IEnumerable<T> satisfies, IEnumerable<T> notsatisfies)

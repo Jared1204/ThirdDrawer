@@ -1,16 +1,28 @@
-﻿using System;
-using System.Linq;
-using ThirdDrawer.Extensions.CollectionExtensionMethods;
-
-namespace ThirdDrawer.Extensions.TypeExtensionMethods
+﻿namespace ThirdDrawer.Extensions.TypeExtensionMethods
 {
+    using System;
+    using System.Linq;
+    using ThirdDrawer.Extensions.CollectionExtensionMethods;
+
     public static class TypeExtensions
     {
         public static bool IsInstantiable(this Type type)
         {
-            if (type.IsInterface) return false;
-            if (type.IsAbstract) return false;
-            if (type.ContainsGenericParameters) return false;
+            if (type.IsInterface)
+            {
+                return false;
+            }
+
+            if (type.IsAbstract)
+            {
+                return false;
+            }
+
+            if (type.ContainsGenericParameters)
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -32,7 +44,10 @@ namespace ThirdDrawer.Extensions.TypeExtensionMethods
 
         public static bool IsClosedTypeOf(this Type type, Type openGenericType)
         {
-            if (!openGenericType.IsGenericType) throw new ArgumentException("It's a bit difficult to have a closed type of a non-open-generic type", "openGenericType");
+            if (!openGenericType.IsGenericType)
+            {
+                throw new ArgumentException("It's a bit difficult to have a closed type of a non-open-generic type", "openGenericType");
+            }
 
             var interfaces = type.GetInterfaces();
             var baseTypes = new[] { type }.DepthFirst(t => t.BaseType == null ? new Type[0] : new[] { t.BaseType });
@@ -54,6 +69,7 @@ namespace ThirdDrawer.Extensions.TypeExtensionMethods
             var genericInterfaces = type.GetInterfaces()
                 .Where(i => i.IsClosedTypeOf(genericInterface))
                 .ToArray();
+
             return genericInterfaces;
         }
     }

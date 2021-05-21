@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace ThirdDrawer.Extensions.StringExtensionMethods
+﻿namespace ThirdDrawer.Extensions.StringExtensionMethods
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
     public static class StringExtensions
     {
         public static string FormatWith(this string s, params object[] args)
@@ -20,6 +20,7 @@ namespace ThirdDrawer.Extensions.StringExtensionMethods
             var characters = new List<char>();
 
             var random = new Random();
+
             for (var i = 0; i < length; i++)
             {
                 var asciiCode = random.Next(33, 126); // ! to ~ in ASCII
@@ -74,6 +75,7 @@ namespace ThirdDrawer.Extensions.StringExtensionMethods
         public static string RemoveCharacters(this string s, string toRemove)
         {
             var working = s;
+
             foreach (var c in toRemove.ToCharArray())
             {
                 working = working.Replace(c.ToString(), string.Empty);

@@ -1,19 +1,21 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace ThirdDrawer.Extensions.TaskExtensionMethods
+﻿namespace ThirdDrawer.Extensions.TaskExtensionMethods
 {
+    using System;
+    using System.Threading.Tasks;
+
     public static class TaskExtensions
     {
         public static TResult WaitForResult<TResult>(this Task<TResult> task)
         {
             task.Wait();
+
             return task.Result;
         }
 
         public static TResult WaitForResult<TResult>(this Task<TResult> task, TimeSpan timeout)
         {
             task.Wait(timeout);
+
             return task.Result;
         }
     }
