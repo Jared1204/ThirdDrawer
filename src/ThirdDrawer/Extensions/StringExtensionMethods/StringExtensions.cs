@@ -7,6 +7,7 @@
     using System.Security.Cryptography;
     using System.Text;
     using System.Text.RegularExpressions;
+    using System.Web;
 
     public static class StringExtensions
     {
@@ -82,6 +83,46 @@
             }
 
             return working;
+        }
+
+        public static string Truncate(this string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return value;
+            }
+
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
+        }
+
+        public static string ToSentenceCaseSingleString(this string str)
+        {
+            return Regex.Replace(str, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}");
+        }
+
+        public static StringBuilder AppendIfNotNull(this StringBuilder strBuilder, string value, string prefix = "", string suffix = "")
+        {
+            return string.IsNullOrWhiteSpace(value) ? strBuilder : strBuilder.Append(prefix).Append(value).Append(suffix);
+        }
+
+        public static string CapitaliseFirstCharOnly(this string input)
+        {
+            return string.IsNullOrWhiteSpace(input) ? input : char.ToUpper(input[0]) + input[1..].ToLower();
+        }
+
+        public static string TakeFirst(this string input, int length)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return input;
+            }
+
+            return input.Substring(0, Math.Min(length, input.Length));
+        }
+
+        public static string ToEncoded(this string toEncode)
+        {
+            return HttpUtility.UrlEncode(toEncode);
         }
     }
 }
