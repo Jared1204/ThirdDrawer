@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdDrawer", "ThirdDrawer.csproj", "{642887A5-8C6C-4D43-90D6-C51C5F7DC8AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThirdDrawer", "ThirdDrawer.csproj", "{642887A5-8C6C-4D43-90D6-C51C5F7DC8AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdDrawer.Unit.Tests", "..\..\tests\ThirdDrawer.Unit.Tests\ThirdDrawer.Unit.Tests.csproj", "{A53B0E99-B57B-4A50-901F-F5823271E639}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThirdDrawer.Unit.Tests", "..\..\tests\ThirdDrawer.Unit.Tests\ThirdDrawer.Unit.Tests.csproj", "{A53B0E99-B57B-4A50-901F-F5823271E639}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThridDrawer.Testing", "..\ThridDrawer.Testing\ThridDrawer.Testing.csproj", "{0CE05B16-4727-4BAE-98A9-08CBF70B6FCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FCFBB8CA-5CA8-4925-B517-C8AC30BA9364}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2062F11B-8959-40F4-9B9E-AFDFC10C1214}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +27,18 @@ Global
 		{A53B0E99-B57B-4A50-901F-F5823271E639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A53B0E99-B57B-4A50-901F-F5823271E639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A53B0E99-B57B-4A50-901F-F5823271E639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CE05B16-4727-4BAE-98A9-08CBF70B6FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE05B16-4727-4BAE-98A9-08CBF70B6FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE05B16-4727-4BAE-98A9-08CBF70B6FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE05B16-4727-4BAE-98A9-08CBF70B6FCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{642887A5-8C6C-4D43-90D6-C51C5F7DC8AF} = {FCFBB8CA-5CA8-4925-B517-C8AC30BA9364}
+		{A53B0E99-B57B-4A50-901F-F5823271E639} = {2062F11B-8959-40F4-9B9E-AFDFC10C1214}
+		{0CE05B16-4727-4BAE-98A9-08CBF70B6FCB} = {FCFBB8CA-5CA8-4925-B517-C8AC30BA9364}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48D48569-2A33-48BF-8931-415535288FD1}
